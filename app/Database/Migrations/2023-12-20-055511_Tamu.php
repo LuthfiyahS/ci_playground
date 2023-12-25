@@ -45,11 +45,11 @@ class Tamu extends Migration
         //primary key
         $this->forge->addKey('id', TRUE);
         //nama tabel
-        $this->forge->createTable('tb_tamu');
+        $this->forge->createTable('tamu');
     }
 
     public function down()
     {
-        $this->forge->dropTable('tb_tamu');
+        $this->forge->dropTable('tamu');
     }
 }

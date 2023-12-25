@@ -22,6 +22,12 @@ $routes->post('/login/auth', 'Login::auth');
 $routes->get('/login/logout', 'Login::logout');
 
 
+$routes->get('/berkas', 'Berkas::index');
+$routes->get('/berkas/create', 'Berkas::create');
+$routes->post('/berkas/save', 'Berkas::save');
+$routes->get('/berkas/download/(:any)', 'Berkas::download/$1');
+
+
 
 
 

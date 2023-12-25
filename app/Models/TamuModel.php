@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class TamuModel extends Model
 {
-    protected $table = 'tb_tamu';
+    protected $table = 'tamu';
     protected $primaryKey= 'id';
     protected $returnType = 'object';
     protected $allowedFields = ['tgl_berkunjung','nama_tamu','alamat','no_telepon','keperluan','user_id'];
@@ -15,8 +15,8 @@ class TamuModel extends Model
     {
         if ($id === null) {
 //            return $this->findAll();
-            return $this->select('users.*, tb_tamu.*')
-            ->join('users', 'tb_tamu.user_id = users.id', 'left') // Assuming 'user_id' is the foreign key in tb_tamu
+            return $this->select('users.*, tamu.*')
+            ->join('users', 'tamu.user_id = users.id', 'left') // Assuming 'user_id' is the foreign key in tamu
             ->findAll();
         }
 
