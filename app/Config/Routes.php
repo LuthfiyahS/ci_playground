@@ -32,7 +32,7 @@ $routes->get('post', 'Post::index');
 $routes->post('post/add', 'Post::add');
 $routes->get('post/fetch', 'Post::fetch');
 $routes->get('post/edit/(:num)', 'Post::edit/$1');
-$routes->get('post/delete/(:num)', 'Post::delete/$1');
+$routes->post('post/delete/(:num)', 'Post::delete/$1');
 $routes->get('post/detail/(:num)', 'Post::detail/$1');
 $routes->post('post/update', 'Post::update');
 

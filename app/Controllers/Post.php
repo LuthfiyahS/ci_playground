@@ -131,12 +131,23 @@ class Post extends BaseController
     public function delete($id = null) {
         $postModel = new PostModel();
         $post = $postModel->find($id);
-        $postModel->delete($id);
-        unlink('uploads/avatar/' . $post['image']);
-        return $this->response->setJSON([
-            'error' => false,
-            'message' => 'Successfully deleted post!'
-        ]);
+        
+if ($post) {
+    // Data ditemukan, hapus dan lanjutkan dengan langkah selanjutnya
+    $postModel->delete($id);
+    unlink('uploads/avatar/' . $post['image']);
+    
+    return $this->response->setJSON([
+        'error' => false,
+        'message' => 'Successfully deleted post!'
+    ]);
+} else {
+    // Data tidak ditemukan, berikan respons yang sesuai
+    return $this->response->setJSON([
+        'error' => true,
+        'message' => 'Post not found!'
+    ]);
+}
     }
 
     // handle fetch post detail ajax request

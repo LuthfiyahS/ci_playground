@@ -253,7 +253,7 @@
     if (result.isConfirmed) {
         $.ajax({
             url: '<?= base_url('post/delete') ?>/' + id,
-            method: 'get',
+            method: 'post',
             success: function(response) {
                 console.log('kesini')
                 Swal.fire(
@@ -262,7 +262,7 @@
                     'success'
                 );
                 console.log('kesini');
-                // Hapus fetchAllPosts() dari sini
+                fetchAllPosts() //dari sini
             },
             error: function(xhr, status, error) {
                 console.log(error);
@@ -273,10 +273,11 @@
                     'Failed to delete post. Please try again later.',
                     'error'
                 );
+                fetchAllPosts();
             }
         }).done(function () {
             // Pindahkan fetchAllPosts() ke dalam done() callback
-            fetchAllPosts();
+            //fetchAllPosts();
         });
     }
 })
