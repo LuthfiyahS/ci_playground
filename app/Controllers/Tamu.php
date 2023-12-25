@@ -9,30 +9,48 @@ class Tamu extends BaseController
     protected $tamuModel;
 
     public function __construct() {
-        // parent::__construct();
+       // parent::__construct();
         $this->tamuModel = new TamuModel();
-
-        if(!session()->has('username')){
-			return redirect()->to('/login');
-		}
+        // parent::__construct();
+        // if(!$this->isLoggedIn()):
+        //     return redirect()->to('/login');
+        // if(!session('logged_in')){
+		// 	return redirect()->to('/login');
+		// }
 		//$data['username']  = session()->get('username');
     }
 
     public function index(){
         // $tamu_model = new TamuModel();
         // $all_data_tamu = $tamu_model->findAll();
+        if(!session()->has('username')){
+			return redirect()->to('/login');
+		}
+        $data['id']  = session()->get('id');
+		$data['username']  = session()->get('username');
         $all_data_tamu = $this->tamuModel->getTamu();
+        //print_r($all_data_tamu);
         return view('tamu',['all_data_tamu'=> $all_data_tamu]);
     }
 
     public function add_data_tamu(){
+        if(!session()->has('username')){
+			return redirect()->to('/login');
+		}
+        $data['id']  = session()->get('id');
+		$data['username']  = session()->get('username');
         return view('add_data_tamu');
     }
 
     public function proses_add_data_tamu(){
         // $item_model = new TamuModel();
         // $item_model->insert($this->request->getPost());
+        if(!session()->has('username')){
+			return redirect()->to('/login');
+		}
+        
         $data = $this->request->getPost();
+        $data['user_id']  = session()->get('id');
         $this->tamuModel->createTamu($data);
         return redirect()->to(base_url('tamu'));
     }

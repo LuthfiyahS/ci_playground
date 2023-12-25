@@ -17,7 +17,7 @@
       <th scope="col">Nama</th>
       <th scope="col">Alamat</th>
       <th scope="col">No Telepon</th>
-      <th scope="col">Keperluan</th>
+      <th scope="col">User Penerima</th>
       <th scope="col">Aksi</th>
     </tr>
   </thead>
@@ -29,7 +29,7 @@
         <th scope="col"><?= $tamu->nama_tamu?></th>
         <th scope="col"><?= $tamu->alamat?></th>
         <th scope="col"><?= $tamu->no_telepon?></th>
-        <th scope="col"><?= $tamu->keperluan?></th>
+        <th scope="col"><?= $tamu->username?></th>
         <th scope="col">
         <a href="<?= base_url('edit_data_tamu').'/'.$tamu->id?>" class="btn btn-info btn-sm">Edit</a>
         <a href="<?= base_url('delete_data_tamu').'/'.$tamu->id?>" class="btn btn-danger btn-sm">Delete</a>
