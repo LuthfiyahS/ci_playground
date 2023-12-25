@@ -180,4 +180,7 @@ class App extends BaseConfig
 
     public $autostartSession = true;
 
+    public $displayErrorDetails = true;
+
+
 }
